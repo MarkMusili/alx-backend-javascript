@@ -1,3 +1,4 @@
+// Values of the variables task and task2 should not change
 export default function taskBlock(trueOrFalse) {
   const task = false;
   const task2 = true;
