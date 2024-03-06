@@ -1,5 +1,5 @@
 node_modules
-.eslintrc.cs
+.eslintrc.cjs
 .package-lock.json
 package*
 settings.json
