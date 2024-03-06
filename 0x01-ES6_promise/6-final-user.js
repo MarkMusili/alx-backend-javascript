@@ -10,5 +10,5 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     .then((value) => ({ status: 'fulfilled', value }))
     .catch((error) => ({ status: 'rejected', value: error }));
 
-  return Promise.all([uploadResponse, signUpResponse]);
+  return Promise.allSettled([uploadResponse, signUpResponse]);
 }
