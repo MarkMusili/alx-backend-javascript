@@ -37,7 +37,7 @@ export default class Pricing {
     return `${this._amount} ${this._currency.code} (${this._currency.name})`;
   }
 
-  static convert(amount, conversionRate) {
+  static convertPrice(amount, conversionRate) {
     return amount * conversionRate;
   }
 }
