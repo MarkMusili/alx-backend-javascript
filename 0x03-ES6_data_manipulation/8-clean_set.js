@@ -1,5 +1,5 @@
 export default function cleanSet(arr, startString) {
-  if (startString === undefined || !startString.length) return '';
+  if (startString === undefined || !startString.length || typeof startString !== 'string') return '';
   let ans = '';
   arr.forEach((x) => {
     if (x.startsWith(startString)) {
