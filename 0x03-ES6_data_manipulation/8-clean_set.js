@@ -6,5 +6,6 @@ export default function cleanSet(arr, startString) {
       ans += `${x.slice(startString.length)}-`;
     }
   });
-  return ans.slice(0, -1);
+  ans = ans.slice(0, -1);
+  return ans.toString();
 }
