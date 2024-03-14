@@ -1,5 +1,7 @@
 node_modules
-.eslintrc.cjs
+.eslintr*
 .package-lock.json
 package*
 settings.json
+webpack*
+tsconfi*
