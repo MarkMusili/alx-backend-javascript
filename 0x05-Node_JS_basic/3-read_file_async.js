@@ -8,7 +8,7 @@ async function countStudents(path) {
           reject(new Error('Cannot load the database'));
         } else {
           const lines = data.split('\n');
-          console.log(`Number of students: ${lines.length}\n`);
+          console.log(`Number of students: ${lines.length}`);
 
           const fields = {};
           lines.forEach((line) => {
