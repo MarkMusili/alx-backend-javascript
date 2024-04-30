@@ -1,29 +1,33 @@
 const fs = require('fs');
 
 function countStudents(path) {
-  try {
-    const data = fs.readFileSync(path, 'utf-8');
-    const lines = data.split('\n');
+    try {
+        const data = fs.readFileSync(path, 'utf-8');
+        const lines = data.trim().split('\n');
 
-    console.log(`Number of students: ${lines.length}`);
+        const totalStudents = lines.length - 1;
+        console.log(`Number of students: ${totalStudents}`);
 
-    const fields = {};
-    lines.forEach((line) => {
-      const [firstName, , , field] = line.split(',');
-      if (!fields[field]) {
-        fields[field] = [];
-      }
-      fields[field].push(firstName);
-    });
+        const fields = {};
 
-    for (const field in fields) {
-      if (field) {
-        console.log(`Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`);
-      }
+        for (let i = 1; i < lines.length; i++) {
+            const [firstName, , , field] = lines[i].split(',');
+            if (!fields[field]) {
+                fields[field] = [];
+            }
+            fields[field].push(firstName);
+        }
+
+        for (const field in fields) {
+            if (fields.hasOwnProperty(field)) {
+                const studentCount = fields[field].length;
+                const studentList = fields[field].join(', ');
+                console.log(`Number of students in ${field}: ${studentCount}. List: ${studentList}`);
+            }
+        }
+    } catch (error) {
+        throw new Error('Cannot load the database');
     }
-  } catch (error) {
-    throw new Error('Cannot load the database');
-  }
 }
 
 module.exports = countStudents;
