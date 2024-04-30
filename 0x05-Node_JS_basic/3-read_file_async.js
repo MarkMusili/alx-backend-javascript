@@ -12,12 +12,12 @@ async function countStudents(path) {
 
           const fields = {};
 
-          for (let i = 1; i < lines.length; i++) {
-              const [firstName, , , field] = lines[i].split(',');
-              if (!fields[field]) {
-                  fields[field] = [];
-              }
-              fields[field].push(firstName);
+          for (let i = 1; i < lines.length; i += 1) {
+            const [firstName, , , field] = lines[i].split(',');
+            if (!fields[field]) {
+              fields[field] = [];
+            }
+            fields[field].push(firstName);
           }
 
           for (const field in fields) {
